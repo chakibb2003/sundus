@@ -22,13 +22,15 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    setIsMounted(true);
     const savedCart = localStorage.getItem("sundus_cart_v2");
     if (savedCart) {
       try {
         setCart(JSON.parse(savedCart));
-      } catch (e) {}
+      } catch {
+        // ignore
+      }
     }
+    setIsMounted(true);
   }, []);
 
   useEffect(() => {

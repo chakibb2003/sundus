@@ -43,7 +43,7 @@ export default function CartCheckoutPage() {
     return (
       <div className="flex-1 container mx-auto px-4 py-16 flex flex-col items-center justify-center min-h-[60vh]">
         <h1 className="text-3xl font-bold text-foreground mb-4" style={{ fontFamily: 'Georgia, serif' }}>Your cart is empty</h1>
-        <p className="text-muted-foreground mb-8">Let's find some beautiful flowers for you.</p>
+        <p className="text-muted-foreground mb-8">Let&apos;s find some beautiful flowers for you.</p>
         <Link href="/shop" className="bg-primary hover:bg-primary-hover text-white px-8 py-3 rounded-full font-medium transition-colors shadow-sm">
           Start Shopping
         </Link>

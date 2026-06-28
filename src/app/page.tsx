@@ -246,7 +246,7 @@ export default function Home() {
               Get in Touch
             </h2>
             <p className="text-muted-foreground">
-              We'd love to hear from you
+              We&apos;d love to hear from you
             </p>
             <div className="w-16 h-1 bg-primary mx-auto rounded-full mt-4" />
           </div>

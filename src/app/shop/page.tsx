@@ -1,13 +1,13 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, Suspense } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { products, categories, formatPrice } from "@/lib/data";
 import ProductCard from "@/components/ProductCard";
 import { SlidersHorizontal, X } from "lucide-react";
 
-export default function ShopPage() {
+function ShopContent() {
   const searchParams = useSearchParams();
   const initialCategory = searchParams.get("category") || "";
 
@@ -65,8 +65,7 @@ export default function ShopPage() {
 
   const filtersActive = activeCategories.length > 0 || maxPrice < 15000;
 
-  /* ─── filter sidebar (reused for mobile too) ─── */
-  const FilterPanel = () => (
+  const renderFilterPanel = () => (
     <div className="space-y-8">
       {/* Categories */}
       <div>
@@ -152,7 +151,7 @@ export default function ShopPage() {
             >
               Filters
             </h3>
-            <FilterPanel />
+            {renderFilterPanel()}
           </div>
         </div>
 
@@ -216,7 +215,7 @@ export default function ShopPage() {
           {/* mobile filters panel */}
           {showMobileFilters && (
             <div className="md:hidden bg-white border border-border rounded-2xl p-6 mb-6 shadow-sm">
-              <FilterPanel />
+              {renderFilterPanel()}
             </div>
           )}
 
@@ -243,5 +242,13 @@ export default function ShopPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function ShopPage() {
+  return (
+    <Suspense fallback={<div className="container mx-auto py-20 text-center">Loading shop...</div>}>
+      <ShopContent />
+    </Suspense>
   );
 }

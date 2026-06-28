@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-secondary: var(--secondary);
+  --color-card: var(--card);
+  --color-border: var(--border);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+:root {
+  /* Sundus Flowers Theme */
+  --background: #fffafa; /* Very light pink/white background */
+  --foreground: #4a4a4a; /* Soft dark gray for text */
+  --primary: #f472b6; /* Soft pink */
+  --primary-hover: #db2777; /* Deeper pink */
+  --secondary: #fce7f3; /* Very light pink for secondary bg */
+  --card: #ffffff; /* White card background */
+  --border: #fbcfe8; /* Soft pink border */
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), sans-serif;
+  scroll-behavior: smooth;
+}
